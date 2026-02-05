@@ -92,25 +92,17 @@ mvn verify -Dbrowser=edge
 
 ## 📊 Reporting
 Jenkins Cucumber Report
-
-Jenkins Cucumber Reports Plugin is used
-
-Reports are generated from cucumber-report.json
-
-Includes:
-
-Scenario status
-
-Step details
-
-Charts
-
-Embedded screenshots for failed scenarios
+- Jenkins Cucumber Reports Plugin is used
+- Reports are generated from cucumber-report.json
+- Includes:
+    - Scenario status
+    - Step details
+    - Charts
+    - Embedded screenshots for failed scenarios
 
 ---
 
 ## 🚀 Jenkins Integration
-
 - Jenkins Freestyle Job
 - Pulls latest code from GitHub repository
 - Runs tests using Maven (verify phase)
