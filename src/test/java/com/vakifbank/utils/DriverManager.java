@@ -14,7 +14,7 @@ public class DriverManager {
 
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-    private static final String GRID_URL = "http://localhost:4444/wd/hub";
+    private static final String GRID_URL = "http://selenium-hub:4444/wd/hub";
 
     private DriverManager() {
         // prevent instantiation
