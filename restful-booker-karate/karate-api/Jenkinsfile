@@ -31,22 +31,14 @@ pipeline {
 
     post {
         always {
-
-            // Karate native HTML report
-            publishHTML(target: [
-                allowMissing: true,
+            publishHTML([
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
                 keepAll: true,
                 reportDir: 'restful-booker-karate/karate-api/target/karate-reports',
                 reportFiles: 'karate-summary.html',
                 reportName: 'Karate API Test Report'
             ])
-
-            // Jenkins Cucumber Report (soft-fail / unstable)
-            cucumber(
-                jsonReportDirectory: 'restful-booker-karate/karate-api/target',
-                fileIncludePattern: 'cucumber.json',
-                buildStatus: 'UNSTABLE'
-            )
         }
     }
 }
