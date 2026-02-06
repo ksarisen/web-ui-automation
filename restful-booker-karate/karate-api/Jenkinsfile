@@ -9,15 +9,22 @@ pipeline {
             }
         }
 
+        stage('Build Docker Image') {
+            steps {
+                dir('restful-booker-karate') {
+                    sh 'docker build -t karate-api-tests .'
+                }
+            }
+        }
+
         stage('Run Karate Tests') {
             steps {
                 dir('restful-booker-karate') {
-                    script {
-                        docker.build('karate-api-tests')
-                        docker.image('karate-api-tests').run(
-                            "-v ${env.WORKSPACE}/restful-booker-karate/target:/app/target"
-                        )
-                    }
+                    sh '''
+                        docker run --rm \
+                        -v $WORKSPACE/restful-booker-karate/target:/app/target \
+                        karate-api-tests
+                    '''
                 }
             }
         }
