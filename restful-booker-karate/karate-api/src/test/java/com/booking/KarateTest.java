@@ -10,7 +10,9 @@ public class KarateTest {
 
     @Test
     void runAllFeatures() {
-        Results results = Runner.path("classpath:features").parallel(5);
+        Results results = Runner.path("classpath:features")
+                .outputCucumberJson(true)
+                .parallel(1);
 
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
