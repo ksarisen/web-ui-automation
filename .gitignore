@@ -1,7 +1,15 @@
-/target/
-/.idea/
-/.vscode/
-/logs/
-*.log
+# Maven
+target/
+**/target/
+
+# IDE
+.idea/
+.vscode/
 *.iml
+
+# Logs
+logs/
+*.log
+
+# OS
 .DS_Store

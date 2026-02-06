@@ -9,7 +9,17 @@ covering Web UI, Mobile UI, and API layers.
 3. API Automation 
 
 Each section is implemented as an independent automation module
-using industry best practices.
+
+## 📁 Repository Structure
+
+```text
+test-automation-case
+├── docker-compose.yml
+├── README.md
+├── web-ui-automation
+├── mobile-ui-automation
+└── api-automation (planned)
+```
 
 ---
 
