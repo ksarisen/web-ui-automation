@@ -16,6 +16,14 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
+    <configuration>
+        <systemPropertyVariables>
+            <karate.options>
+                --plugin json:target/cucumber.json
+            </karate.options>
+        </systemPropertyVariables>
+    </configuration>
+
     <dependencies>
         <dependency>
             <groupId>com.intuit.karate</groupId>
