@@ -1,0 +1,7 @@
+com\akakce\tests\SmokeTest.class
+com\akakce\pages\AkakcePage.class
+com\akakce\steps\AkakceSteps.class
+com\akakce\pages\BasePage.class
+com\akakce\driver\DriverManager.class
+com\akakce\hooks\Hooks.class
+com\akakce\runners\TestRunner.class

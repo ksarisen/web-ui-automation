@@ -1,0 +1,13 @@
+C:\Users\kerem\web-ui-automation\src\test\java\com\vakifbank\hooks\Hooks.java
+C:\Users\kerem\web-ui-automation\src\test\java\com\vakifbank\pages\AlertsPage.java
+C:\Users\kerem\web-ui-automation\src\test\java\com\vakifbank\pages\BasePage.java
+C:\Users\kerem\web-ui-automation\src\test\java\com\vakifbank\pages\BookStorePage.java
+C:\Users\kerem\web-ui-automation\src\test\java\com\vakifbank\pages\PracticeFormPage.java
+C:\Users\kerem\web-ui-automation\src\test\java\com\vakifbank\runners\TestRunner.java
+C:\Users\kerem\web-ui-automation\src\test\java\com\vakifbank\stepdefinitions\AlertsSteps.java
+C:\Users\kerem\web-ui-automation\src\test\java\com\vakifbank\stepdefinitions\BookStoreSteps.java
+C:\Users\kerem\web-ui-automation\src\test\java\com\vakifbank\stepdefinitions\InvalidNavigationSteps.java
+C:\Users\kerem\web-ui-automation\src\test\java\com\vakifbank\stepdefinitions\PracticeFormSteps.java
+C:\Users\kerem\web-ui-automation\src\test\java\com\vakifbank\utils\DateUtils.java
+C:\Users\kerem\web-ui-automation\src\test\java\com\vakifbank\utils\DriverManager.java
+C:\Users\kerem\web-ui-automation\src\test\java\com\vakifbank\utils\TestDataGenerator.java

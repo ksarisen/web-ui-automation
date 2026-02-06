@@ -1,8 +1,23 @@
-# Web UI Automation Project
+# Test Automation Case Study
+
+This repository contains an end-to-end test automation case study
+covering Web UI, Mobile UI, and API layers.
+
+## 📌 Scope
+1. Web UI Automation 
+2. Mobile UI Automation 
+3. API Automation 
+
+Each section is implemented as an independent automation module
+using industry best practices.
+
+---
+
+## 1️⃣ Web UI Automation Project
 
 This project is a Web UI Test Automation framework developed as part of a technical case study.
 
-## 🛠 Technologies Used
+### 🛠 Technologies Used
 
 - **Java 21**
 - **Selenium WebDriver**
@@ -16,13 +31,11 @@ This project is a Web UI Test Automation framework developed as part of a techni
 
 ---
 
-## 📁 Project Structure
+### 📁 Project Structure
 
 ```text
-web-ui-automation
-├── docker-compose.yml
+web-ui
 ├── pom.xml
-├── README.md
 └── src
     └── test
         ├── java
@@ -52,7 +65,7 @@ web-ui-automation
 
 ---
 
-## ✅ Implemented Test Scenarios
+### ✅ Implemented Test Scenarios
 
 - Book Store list validation (row count & book details)
 - Practice Form validation
@@ -65,7 +78,7 @@ Each scenario includes necessary validations as required by the case.
 
 ---
 
-## 🧵 Parallel Execution
+### 🧵 Parallel Execution
 
 - Parallel execution is enabled using **TestNG**
 - Each scenario runs with its own WebDriver instance via `ThreadLocal`
@@ -73,7 +86,7 @@ Each scenario includes necessary validations as required by the case.
 
 ---
 
-## 🌐 Selenium Grid 4 (Docker)
+### 🌐 Selenium Grid 4 (Docker)
 
 Selenium Grid 4 is executed using Docker containers:
 
@@ -92,7 +105,7 @@ mvn verify -Dbrowser=edge
 
 ---
 
-## 🧪 Driver Management
+### 🧪 Driver Management
 - Centralized DriverManager
 - Uses ThreadLocal<WebDriver> for parallel safety
 - Supports Chrome and Edge
@@ -100,7 +113,7 @@ mvn verify -Dbrowser=edge
 
 ---
 
-## 📸 Screenshot on Failure
+### 📸 Screenshot on Failure
 - Screenshots are captured automatically for failed scenarios
 - Implemented using a Cucumber @After hook
 - Screenshots are attached directly to the Cucumber scenario
@@ -111,7 +124,7 @@ mvn verify -Dbrowser=edge
 
 ---
 
-## 📊 Reporting
+### 📊 Reporting
 Jenkins Cucumber Report
 - Jenkins Cucumber Reports Plugin is used
 - Reports are generated from cucumber-report.json
@@ -123,7 +136,7 @@ Jenkins Cucumber Report
 
 ---
 
-## 🚀 Jenkins Integration
+### 🚀 Jenkins Integration
 - Jenkins Freestyle Job
 - Pulls latest code from GitHub repository
 - Runs tests using Maven (verify phase)
@@ -132,7 +145,7 @@ Jenkins Cucumber Report
 
 ---
 
-## ▶️ How to Run Locally
+### ▶️ How to Run Locally
 - Prerequisites:
     - Java 21
     - Maven
@@ -152,12 +165,141 @@ mvn verify -Dbrowser=chrome
 
 ---
 
-## 📝 Notes
+### 📝 Notes
 
 - All requirements defined in the case study are fully implemented
 - Framework is scalable and easily extendable
 - Clean architecture using Page Object Model
 - CI-ready with Jenkins and Docker-based Grid
+
+---
+
+## 2️⃣ Mobile UI Automation
+This module covers Mobile UI test automation for an Android application
+as part of the technical case requirements.
+
+### 🛠 Technologies Used
+
+- **Java 21**
+- **Appium**
+- **UiAutomator2**
+- **Android Emulator**
+- **Cucumber BDD**
+- **TestNG**
+- **Maven**
+- **Appium Inspector**
+
+---
+
+### 📁 Project Structure
+
+```text
+mobile-ui-automation
+├── pom.xml
+├── src
+│   └── test
+│       ├── java
+│       │   └── com
+│       │       └── akakce
+│       │           ├── driver
+│       │           │   └── DriverManager.java
+│       │           ├── hooks
+│       │           │   └── Hooks.java
+│       │           ├── pages
+│       │           │   ├── BasePage.java
+│       │           │   └── AkakcePage.java
+│       │           ├── runners
+│       │           │   └── TestRunner.java
+│       │           └── steps
+│       │               └── AkakceSteps.java
+│       └── resources
+│           └── features
+│               └── akakce.feature
+```
+
+---
+
+### ✅ Implemented Scenario
+- Search for a product (Laptop)
+- Apply multiple filters
+- Sort results by lowest price
+- Select a specific product from the list
+- Validate seller button visibility
+- Compare listing price with detail page price (partially implemented)
+
+---
+
+### 📸 Screenshot on Failure
+- Screenshots are captured automatically for failed scenarios
+- Implemented via Cucumber @After hook
+- Screenshots are embedded directly into the Cucumber report
+- No Thread.sleep() usage (explicit waits only)
+
+---
+
+### ▶️ How to Run
+
+Prerequisites:
+- Java 21
+- Maven
+- Android SDK
+- Android Emulator
+- Appium Server
+
+Start Appium Server
+
+```bash
+appium
+```
+
+Run Tests
+
+```bash
+mvn clean test
+```
+
+---
+
+### 🧪 Appium Inspector
+
+Appium Inspector was used extensively to:
+- Inspect dynamic UI hierarchies
+- Identify transient UI containers
+- Analyze scroll behavior and overlay components
+- Validate locator strategies before implementation
+
+---
+
+### ⚠️ Known Limitation (Transparent Disclosure)
+Due to dynamic UI rendering and price components being split into
+multiple TextView elements in the product detail screen, a fully
+reliable price extraction from the detail page could not be finalized
+within the given time frame.
+- Price digits are rendered across multiple TextViews
+- No unique or stable resource-id available for full price value
+- Multiple similar TextViews exist across the page
+This limitation is documented intentionally to demonstrate
+real-world mobile UI automation challenges and decision-making.
+
+---
+
+### 🧵 Parallel Execution
+- Parallel execution is supported via TestNG
+- Thread-safe driver management using ThreadLocal
+- Each scenario runs with an isolated Appium session
+
+---
+
+### 📝 Notes
+
+- Project follows clean architecture principles
+- No hard waits (`Thread.sleep`) are used
+- Explicit waits and robust locators are preferred
+- Known limitations are documented transparently
+
+---
+
+## 3️⃣ API Automation
 
 ---
 

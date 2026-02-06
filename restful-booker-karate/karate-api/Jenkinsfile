@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Run Karate Tests') {
+            steps {
+                dir('restful-booker-karate') {
+                    script {
+                        docker.build('karate-api-tests')
+                        docker.image('karate-api-tests').run(
+                            "-v ${env.WORKSPACE}/restful-booker-karate/target:/app/target"
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            publishHTML(target: [
+                reportDir: 'restful-booker-karate/target/karate-reports',
+                reportFiles: 'karate-summary.html',
+                reportName: 'Karate API Test Report',
+                keepAll: true,
+                alwaysLinkToLastBuild: true,
+                allowMissing: true
+            ])
+        }
+    }
+}
