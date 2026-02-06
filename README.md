@@ -229,6 +229,13 @@ mobile-ui-automation
 
 ---
 
+### 📱 Execution Environment
+- Tests were executed on an Android Emulator created via Android Studio
+- Appium Server was started manually before test execution
+- UI element inspection and locator validation were performed using Appium Inspector
+
+---
+
 ### ✅ Implemented Scenario
 - Search for a product (Laptop)
 - Apply multiple filters
