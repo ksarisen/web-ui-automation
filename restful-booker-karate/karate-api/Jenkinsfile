@@ -32,6 +32,7 @@ pipeline {
     post {
         always {
 
+            // Karate native HTML report
             publishHTML(target: [
                 allowMissing: true,
                 keepAll: true,
@@ -40,11 +41,11 @@ pipeline {
                 reportName: 'Karate API Test Report'
             ])
 
+            // Jenkins Cucumber Report (soft-fail / unstable)
             cucumber(
                 fileIncludePattern: '**/cucumber.json',
-                skipSteps: false,
-                sortingMethod: 'ALPHABETICAL',
-                buildStatus: 'UNSTABLE'
+                buildStatus: 'UNSTABLE',
+                sortingMethod: 'ALPHABETICAL'
             )
         }
     }
