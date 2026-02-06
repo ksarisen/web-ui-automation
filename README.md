@@ -300,6 +300,152 @@ real-world mobile UI automation challenges and decision-making.
 ---
 
 ## 3️⃣ API Automation
+This module covers API Test Automation using the Karate Framework and is designed
+to validate RESTful services as part of an end-to-end automation strategy.
+
+The project focuses on functional correctness, data integrity, and
+CI/CD readiness rather than UI-driven validations.
+
+---
+
+### 🛠 Technologies Used
+
+- Java 17
+- Karate DSL
+- JUnit 5
+- Maven
+- Docker
+- Jenkins
+- RESTful Booker API (public test API)
+
+---
+
+### 📁 Project Structure
+
+```text
+restful-booker-karate
+└── karate-api
+    ├── Dockerfile
+    ├── Jenkinsfile
+    ├── pom.xml
+    └── src
+        └── test
+            ├── java
+            │   └── com
+            │       └── booking
+            │           └── KarateTest.java
+            └── resources
+                └── features
+                    ├── create-booking.feature
+                    ├── get-booking-by-id.feature
+                    ├── update-booking.feature
+                    ├── partial-update-booking.feature
+                    ├── delete-booking.feature
+                    └── ping.feature
+```
+
+---
+
+### ✅ Implemented Scenario
+- Health check (/ping)
+- Create booking
+- Get booking by ID
+- Update booking (PUT)
+- Partial update booking (PATCH)
+- Delete booking
+- Response body & schema validations
+- Status code validations
+- Dynamic ID handling between scenarios
+
+Each endpoint is tested independently to ensure statelessness and
+repeatable execution in CI environments.
+
+---
+
+### 🧪 Test Design Approach
+- API tests are written using Karate’s declarative DSL
+- No external test data dependencies
+- Assertions cover:
+- HTTP status codes
+- Response payload structure
+- Field-level data validation
+- Tests are designed to be idempotent and CI-safe
+
+---
+
+### 📊 Reporting (Karate Native Report)
+
+- Karate generates its own HTML test report
+- Reports are located under:
+
+```text
+target/karate-reports/karate-summary.html
+```
+
+- The report includes:
+    - Feature-level and scenario-level results
+    - Execution duration
+    - Step-by-step request/response visibility
+
+⚠️ Jenkins Cucumber plugin is not used for this module, as Karate
+does not produce standard cucumber-jvm JSON outputs.
+Karate native reporting is the recommended and supported approach.
+
+---
+
+### 🚀 Jenkins Integration
+
+- Implemented using Jenkins Pipeline
+- Pipeline stages:
+    - Checkout source code
+    - Build Docker image
+    - Execute API tests inside Docker container
+    - Publish Karate HTML report
+    - Jenkins build result reflects actual test execution status
+
+---
+
+### 🐳 Docker Execution
+
+- Tests are executed inside a Docker container
+- Maven dependencies are resolved during image build
+- Ensures:
+    - Environment consistency
+    - CI/CD portability
+    - Zero local setup dependency
+
+---
+
+### ▶️ How to Run Locally
+
+Prerequisites:
+- Java 17+
+- Maven
+- Docker
+
+Run tests using Maven:
+
+```bash
+mvn clean test
+```
+
+Or using Docker:
+
+```bash
+docker build -t karate-api-tests .
+docker run --rm -v target:/app/target karate-api-tests
+```
+
+---
+
+### 📝 Notes
+
+- API tests are fully CI/CD ready
+-= Framework is lightweight and highly maintainable
+- Clear separation from UI and Mobile automation layers
+- Designed to demonstrate real-world API automation practices
+- Reporting strategy intentionally differs from UI/Mobile modules
+to align with Karate best practices
 
 ---
 
